@@ -29,19 +29,19 @@ Get the image:
 docker pull oscarfonts/h2
 ```
 
-Run as a service, exposing ports 1521 (TCP database server) and 81 (web interface) and mapping DATA_DIR to host:
+Run as a service, exposing ports 1521 (TCP database server) and 8081 (web interface) and mapping DATA_DIR to host:
 
 ```
-docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data --name=MyH2Instance oscarfonts/h2
+docker run -d -p 1521:1521 -p 8081:8081 -v /path/to/local/data_dir:/opt/h2-data --name=MyH2Instance oscarfonts/h2
 ```
 
 Or run as a service with an extra custom config set in the command line, like allowing to create database at connection:
 
 ```
-docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS=-ifNotExists --name=MyH2Instance oscarfonts/h2
+docker run -d -p 1521:1521 -p 8081:8081 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS=-ifNotExists --name=MyH2Instance oscarfonts/h2
 ```
 
-The H2 web console will be available at: http://localhost:81
+The H2 web console will be available at: http://localhost:8081
 
 See the logs while running:
 

@@ -1,4 +1,4 @@
-FROM openjdk:10
+FROM openjdk:11
 
 # A merge of:
 #  https://github.com/zhilvis/docker-h2
@@ -16,11 +16,11 @@ RUN mkdir -p ${DATA_DIR} \
 
 COPY h2.server.properties /root/.h2.server.properties
 
-EXPOSE 81 1521
+EXPOSE 8081 1521
 
 WORKDIR /opt/h2-data
 
 CMD java -cp /opt/h2/bin/h2*.jar org.h2.tools.Server \
- 	-web -webAllowOthers -webPort 81 \
+ 	-web -webAllowOthers -webPort 8081 \
  	-tcp -tcpAllowOthers -tcpPort 1521 \
  	-baseDir ${DATA_DIR} ${H2_OPTIONS}
